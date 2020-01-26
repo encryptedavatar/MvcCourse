@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcCourse.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Student Body Statistics";
+}
+
+<h2>Student Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Full Name
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Enrollments
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.Enrollments.Count)
+            </td>
+        </tr>
+    }
+</table>
+
+<table>
+
+</table>

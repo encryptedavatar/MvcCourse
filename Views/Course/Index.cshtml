@@ -1,0 +1,115 @@
+﻿@model MvcCourse.ViewModels.InstructorIndexData
+
+@{
+    ViewBag.Title = "Courses";
+}
+
+<h2>Courses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            CourseID
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Capacity
+        </th>
+    </tr>
+    @foreach (var item in Model.Courses)
+    {
+        string selectedRow = "";
+        if (item.CourseID == ViewBag.CourseID)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow">
+            <td>
+                @Html.ActionLink("Select", "Index", new { courseID = item.CourseID })
+            </td>
+            <td>
+                @item.CourseID
+            </td>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Capacity
+            </td>
+        </tr>
+    }
+
+</table>
+
+<table>
+    <th>
+        Number of students
+    </th>
+    <th>
+        Min Age
+    </th>
+    <th>
+        Max Age
+    </th>
+    <th>
+        Average Age
+    </th>
+    <th>
+        Instructor
+    </th>
+    <tr>
+        <td>
+            @ViewBag.NumberOfStudents
+        </td>
+        <td>
+            @ViewBag.MinAge
+        </td>
+        <td>
+            @ViewBag.MaxAge
+        </td>
+        <td>
+            @ViewBag.AverageAge
+        </td>
+        <td>
+            @ViewBag.Instructor
+        </td>
+    </tr>
+</table>
+
+@if (Model.Enrollments != null)
+{
+    <h3>
+        Students Enrolled in Selected Course
+    </h3>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Grade</th>
+        </tr>
+        @foreach (var item in Model.Enrollments)
+        {
+            <tr>
+                <td>
+                    @item.Student.FullName
+                </td>
+                <td>
+                    @item.Student.Age
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+            </tr>
+        }
+    </table>
+}

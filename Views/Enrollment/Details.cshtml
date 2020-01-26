@@ -1,0 +1,59 @@
+﻿@model MvcCourse.Models.Enrollment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Enrollment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Email)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EnrollmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
